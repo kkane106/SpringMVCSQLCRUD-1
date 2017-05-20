@@ -7,11 +7,11 @@ I'm going to simply make a web application with a list that League of Legends Ch
 
 
 
-
-
-
-
-
+*
+*
+*
+*
+*
 
 
 
