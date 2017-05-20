@@ -10,11 +10,11 @@
 </head>
 <body>
 	<h2>Welcome to League of Legends Champions!</h2>
-	<form method="POST" action="championList.do"></form>
+	<form method="GET" action="championList.do"></form>
 	
 	<label>What is the Champion's name?:<input type="text" name="userName"></label>
 	<br>
-	<label>What is your Monthly Income?:<input type="text" name="championType"></label>
+	<label>What is your Champion's role?:<input type="text" name="championType"></label>
 	<br>
 	
 </body>

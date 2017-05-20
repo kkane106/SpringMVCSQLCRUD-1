@@ -18,9 +18,8 @@ import org.springframework.web.context.WebApplicationContext;
 
 public class ChampionDAOImpl {
 	private static final String INITIAL_CHAMPION_FILE = "/WEB-INF/initialChampions.csv";
-	private static String PERSISTENT_CHAMPION_FILE ="/WEB-INF/persistentChampions.csv";
+	private static String PERSISTENT_CHAMPION_FILE = "/WEB-INF/persistentChampions.csv";
 	private List<Champion> champions = new ArrayList<>();
-	
 
 	/*
 	 * Use Autowired to have Spring inject an instance of a
@@ -30,11 +29,10 @@ public class ChampionDAOImpl {
 	 */
 	@Autowired
 	private WebApplicationContext wac;
-	
+
 	@Autowired
 	ServletContext context;
 
-	
 	/*
 	 * The @PostConstruct method is called by Spring after object creation and
 	 * dependency injection
@@ -56,71 +54,76 @@ public class ChampionDAOImpl {
 			System.err.println(e);
 		}
 	}
-}
 	
 //	@Override
-//	public void persistOrder(Order order) {
-//		String orderFile
-//		
-//		try {
-//			PrintWriter out = new PrintWriter(new FileWriter(PERSISTENT_CHAMPION_FILE));
-//		}
-//	}
-	
-//	@PostConstruct
-//	public void createChampionAndPutIntoUpdatedListOfChampions(){
-//		try (InputStream is = wac.getServletContext().getResourceAsStream(PERSISTENT_CHAMPION_FILE);
-//		
-//	}
-//	@PostConstruct
-//	public void deleteChampionAndUpdateListOfChampions(){
-//		try (InputStream is = wac.getServletContext().getResourceAsStream(PERSISTENT_CHAMPION_FILE);
-//		
-//	}
+	public List<Champion> addOverpoweredChampion(){
+		Champion c = null;
+		
+	}
+//	@Override
+	public void deleteOverpoweredChampion(){
+		Champion c = null;
+		for (Champion champion : champions) {
+			if(champion.getChampionName() == c.getChampionName()) {
+				c = champion;
+			}
+		}
+		champions.remove(c);
+	}
 	
 	
 	
-	
-	
-	
-	
-	// Rob's example
-	
-//    private static final String d = "|";
-//  private void loadOrders() {
-//      String line = "Cat|Dog";
-//      line.split("\\|");
-//  }
-//  @Autowired
-//  ServletContext context;
-//  @Override
-//  public void persistOrder(Order order) {
-//      String orderFile = "WEB-INF/orders.csv";
-//      String filePath = context.getRealPath(orderFile);
-//      System.out.println("DAO: " + filePath);
-//      try {
-//          PrintWriter out = new PrintWriter(new FileWriter(filePath));
-//          for (Pizza p : order.getPizzas()) {
-//              out.println(order.getCustomerEmail()+d+p.getCrust()+p.getSize()+d+p.getSauce()
-//                          +p.getToppings()
-//              );
-//              
-//          }
-//          out.close();
-//      } catch (IOException ioe) {
-//          ioe.printStackTrace();
-//      }
-//  }
-//	
-//	
-//	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+}
 
+// @Override
+// public void persistOrder(Order order) {
+// String orderFile
+//
+// try {
+// PrintWriter out = new PrintWriter(new FileWriter(PERSISTENT_CHAMPION_FILE));
+// }
+// }
+
+// @PostConstruct
+// public void createChampionAndPutIntoUpdatedListOfChampions(){
+// try (InputStream is =
+// wac.getServletContext().getResourceAsStream(PERSISTENT_CHAMPION_FILE);
+//
+// }
+// @PostConstruct
+// public void deleteChampionAndUpdateListOfChampions(){
+// try (InputStream is =
+// wac.getServletContext().getResourceAsStream(PERSISTENT_CHAMPION_FILE);
+//
+// }
+
+// Rob's example
+
+// private static final String d = "|";
+// private void loadOrders() {
+// String line = "Cat|Dog";
+// line.split("\\|");
+// }
+// @Autowired
+// ServletContext context;
+// @Override
+// public void persistOrder(Order order) {
+// String orderFile = "WEB-INF/orders.csv";
+// String filePath = context.getRealPath(orderFile);
+// System.out.println("DAO: " + filePath);
+// try {
+// PrintWriter out = new PrintWriter(new FileWriter(filePath));
+// for (Pizza p : order.getPizzas()) {
+// out.println(order.getCustomerEmail()+d+p.getCrust()+p.getSize()+d+p.getSauce()
+// +p.getToppings()
+// );
+//
+// }
+// out.close();
+// } catch (IOException ioe) {
+// ioe.printStackTrace();
+// }
+// }
+//
+//
+//

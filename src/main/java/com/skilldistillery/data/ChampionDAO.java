@@ -8,4 +8,6 @@ public interface ChampionDAO {
 	String getChampionRole();
 	void deleteChampionFromList();
 	String addChampionToList();
+	void addOverpoweredChampion();
+	void deleteOverpoweredChampion();
 }
