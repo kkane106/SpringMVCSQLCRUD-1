@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<form method="GET" action="index.do"></form>
+<form method="POST" action="userChampionView.jsp"></form>
 
 <h2>Current League of Legends Champions!</h2>
 

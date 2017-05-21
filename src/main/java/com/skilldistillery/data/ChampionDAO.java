@@ -3,11 +3,9 @@ package com.skilldistillery.data;
 import java.util.List;
 
 public interface ChampionDAO {
-	List<Champion> getAllChampions();
-	String getChampionName();
-	String getChampionRole();
-	void deleteChampionFromList();
-	String addChampionToList();
-	void addOverpoweredChampion();
-	void deleteOverpoweredChampion();
+	public List<Champion> getAllChampions();
+	public Champion getChampionName(String name);
+//	public Champion getChampionRole();      //add if I have time
+	public void addOverpoweredChampionToList(String championName, String championRole);
+	public void deleteOverpoweredChampionFromList();
 }

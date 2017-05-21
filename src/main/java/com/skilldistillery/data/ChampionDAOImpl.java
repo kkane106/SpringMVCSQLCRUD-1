@@ -16,9 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.context.WebApplicationContext;
 
-public class ChampionDAOImpl {
+public class ChampionDAOImpl implements ChampionDAO{
 	private static final String INITIAL_CHAMPION_FILE = "/WEB-INF/initialChampions.csv";
-	private static String PERSISTENT_CHAMPION_FILE = "/WEB-INF/persistentChampions.csv";
+//	private static String PERSISTENT_CHAMPION_FILE = "/WEB-INF/persistentChampions.csv"; // Don't need to use in order to reflect a current list of League champions during the web application lifespan
 	private List<Champion> champions = new ArrayList<>();
 
 	/*
@@ -30,8 +30,8 @@ public class ChampionDAOImpl {
 	@Autowired
 	private WebApplicationContext wac;
 
-	@Autowired
-	ServletContext context;
+//	@Autowired
+//	ServletContext context;  Don't think I need, delete later if I don't
 
 	/*
 	 * The @PostConstruct method is called by Spring after object creation and
@@ -55,13 +55,14 @@ public class ChampionDAOImpl {
 		}
 	}
 	
-//	@Override
-	public List<Champion> addOverpoweredChampion(){
-		Champion c = null;
+	@Override
+	public void addOverpoweredChampionToList(String championName, String championRole){
+		Champion c = new Champion(championName, championRole);
+		champions.add(c);
 		
 	}
-//	@Override
-	public void deleteOverpoweredChampion(){
+	@Override
+	public void deleteOverpoweredChampionFromList(){
 		Champion c = null;
 		for (Champion champion : champions) {
 			if(champion.getChampionName() == c.getChampionName()) {
@@ -70,8 +71,25 @@ public class ChampionDAOImpl {
 		}
 		champions.remove(c);
 	}
-	
-	
+	@Override
+	public Champion getChampionName(String name) {
+		Champion c = null;
+		for (Champion champion : champions) {
+			if (champion.getChampionName().equalsIgnoreCase(name)){
+				c = champion;
+				break;
+			}
+		}
+		return c;
+	}
+
+	@Override
+	public List<Champion> getAllChampions() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 	
 }
 

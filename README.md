@@ -3,6 +3,13 @@
 I'm going to simply make a web application with a list that League of Legends Champions can be viewed, added to, or delete champions one by one from the list. It will also access the altered list if the user exits out of the application even though they weren't finished with the website just yet (i.e. if they were disconnected from the internet while they were using the web application).
 
 
+UPDATE README with the below when finished:
+The project must be added to your github account with a README.md spelling out:
+Who did the project?
+What was the project?
+What technologies did you use?
+What future feature sets you would like to add?
+Any stumbling points you encountered?
 
 
 
