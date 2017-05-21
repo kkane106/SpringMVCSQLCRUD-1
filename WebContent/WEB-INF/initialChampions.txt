@@ -18,7 +18,7 @@ CassiopeiatheSerpent'sEmbrace,Mage
 Cho'GaththeTerroroftheVoid,Mage	
 CorkitheDaringBombardier,Marksman		
 DariustheHandofNoxus,Fighter	
-Diana,ScornoftheMoon,Mage	
+DianaScornoftheMoon,Mage	
 Dr.MundotheMadmanofZaun,Tank	
 DraventheGloriousExecutioner,Marksman		
 EkkotheBoyWhoShatteredTime,Slayer	
@@ -79,8 +79,8 @@ NunutheYetiRider,Tank
 OlaftheBerserker,Fighter	
 OriannatheLadyofClockwork,Mage		
 PantheontheArtisanofWar,Fighter	
-Poppy,KeeperoftheHammer,Fighter	
-Quinn,Demacia'sWings,Marksman
+PoppyKeeperoftheHammer,Fighter	
+QuinnDemacia'sWings,Marksman
 RakantheCharmer,Tank		
 RammustheArmordillo,Tank
 Rek'SaitheVoidBurrower,Fighter		

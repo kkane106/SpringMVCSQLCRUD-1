@@ -38,7 +38,7 @@ public class ChampionDAOImpl implements ChampionDAO{
 	 * dependency injection
 	 */
 	@PostConstruct
-	public void initInitialChampions() {
+	public List<Champion> initInitialChampions() {
 		// Retrieve an input stream from the servlet context
 		// rather than directly from the file system
 		try (InputStream is = wac.getServletContext().getResourceAsStream(INITIAL_CHAMPION_FILE);
@@ -47,13 +47,14 @@ public class ChampionDAOImpl implements ChampionDAO{
 			String line;
 			while ((line = buf.readLine()) != null) {
 				String[] tokens = line.split(",");
-				String championName = tokens[1];
-				String championRole = tokens[2];
+				String championName = tokens[0];
+				String championRole = tokens[1];
 				champions.add(new Champion(championName, championRole));
 			}
 		} catch (Exception e) {
 			System.err.println(e);
 		}
+		return champions;
 	}
 	
 	@Override
@@ -73,10 +74,10 @@ public class ChampionDAOImpl implements ChampionDAO{
 		champions.remove(c);
 	}
 	@Override
-	public Champion getChampionName(String name) {
+	public Champion getChampionName(String championName) {
 		Champion c = null;
 		for (Champion champion : champions) {
-			if (champion.getChampionName().equalsIgnoreCase(name)){
+			if (champion.getChampionName().equalsIgnoreCase(championName)){
 				c = champion;
 				break;
 			}
@@ -86,6 +87,9 @@ public class ChampionDAOImpl implements ChampionDAO{
 
 	@Override
 	public List<Champion> getAllChampions() {
+		if (champions.isEmpty()){
+		champions = initInitialChampions();
+		}
 		return champions;
 	}
 

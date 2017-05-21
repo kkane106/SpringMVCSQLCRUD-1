@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h2>Welcome to League of Legends Champions!</h2>
-	<form action="userChampionView.jsp" method="GET">
+	<form action="championsList.do" method="GET">
 	<!-- <form method="GET" action="championList.do"></form> -->
 	View the current list of Champions: 
 	<br>

@@ -20,6 +20,10 @@ public class ChampionController {
 	@Autowired
 	private ChampionDAO championDAO;
 	
+	@ModelAttribute
+	public List<Champion> currentListOfChampions() {
+		return championDAO.getAllChampions();
+	}
 	
 	
 	
@@ -34,7 +38,7 @@ public class ChampionController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("userChampionView.jsp");
 		List<Champion> champions = championDAO.getAllChampions(); 
-		mv.addObject("champion", champions);
+		mv.addObject("champions", champions);
 		return mv;
 		
 	}

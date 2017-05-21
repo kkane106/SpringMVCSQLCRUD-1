@@ -17,12 +17,14 @@
 		
 
 <h2>Current League of Legends Champions!</h2>
-	<c:forEach var="champion" items="${champions}">
-			<ul>
-				<li>test</li>
-				<li>${champions.championName}</li>
-			</ul>
+<table>
+	<c:forEach items="${champions}" var="champion">
+			<tr>
+				<td>${champion.championName}</td>
+				<td>${champion.championRole}</td>
+			</tr>
 	</c:forEach>
+	</table>
 
 </body>
 </html>
