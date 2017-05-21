@@ -17,8 +17,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.web.context.WebApplicationContext;
 
 public class ChampionDAOImpl implements ChampionDAO{
-	private static final String INITIAL_CHAMPION_FILE = "/WEB-INF/initialChampions.csv";
-//	private static String PERSISTENT_CHAMPION_FILE = "/WEB-INF/persistentChampions.csv"; // Don't need to use in order to reflect a current list of League champions during the web application lifespan
+	private static final String INITIAL_CHAMPION_FILE = "/WEB-INF/initialChampions.txt";
+//	private static String PERSISTENT_CHAMPION_FILE = "/WEB-INF/persistentChampions.txt"; // Don't need to use in order to reflect a current list of League champions during the web application lifespan
 	private List<Champion> champions = new ArrayList<>();
 
 	/*
@@ -43,7 +43,8 @@ public class ChampionDAOImpl implements ChampionDAO{
 		// rather than directly from the file system
 		try (InputStream is = wac.getServletContext().getResourceAsStream(INITIAL_CHAMPION_FILE);
 				BufferedReader buf = new BufferedReader(new InputStreamReader(is));) {
-			String line = buf.readLine();
+//			String line = buf.readLine();
+			String line;
 			while ((line = buf.readLine()) != null) {
 				String[] tokens = line.split(",");
 				String championName = tokens[1];
@@ -85,7 +86,6 @@ public class ChampionDAOImpl implements ChampionDAO{
 
 	@Override
 	public List<Champion> getAllChampions() {
-		// TODO Auto-generated method stub
 		return champions;
 	}
 

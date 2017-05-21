@@ -12,14 +12,17 @@
 <body>
 
 
-<form method="POST" action="userChampionView.jsp"></form>
-<h2>Current League of Legends Champions!</h2>
+<!-- <form action="userChampionView.jsp" method="POST"></form> -->
+		<!-- <form action="championsList.do" method="GET"></form> -->
+		
 
-<c:forEach var="championsList" items="${champions}">
-<ul>
-<li>${champions}</li>
-</ul>
-</c:forEach>
+<h2>Current League of Legends Champions!</h2>
+	<c:forEach var="champion" items="${champions}">
+			<ul>
+				<li>test</li>
+				<li>${champions.championName}</li>
+			</ul>
+	</c:forEach>
 
 </body>
 </html>

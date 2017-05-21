@@ -33,8 +33,8 @@ public class ChampionController {
 	public ModelAndView listAllChampions() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("userChampionView.jsp");
-		List<Champion> champions = championDAO.getAllChampions();
-		mv.addObject("championsList", champions);
+		List<Champion> champions = championDAO.getAllChampions(); 
+		mv.addObject("champion", champions);
 		return mv;
 		
 	}

@@ -5,6 +5,13 @@ public class Champion {
 	private String championRole;
 	
 	
+	public Champion(){
+		
+	}
+	public Champion(String championName, String championRole) {
+		this.championName = championName;
+		this.championRole = championRole;
+	}
 	
 	public String getChampionName() {
 		return championName;
@@ -19,14 +26,6 @@ public class Champion {
 		this.championRole = championRole;
 	}
 	
-	public Champion(String championName, String championRole) {
-		super();
-		this.championName = championName;
-		this.championRole = championRole;
-	}
-	public Champion(){
-		
-	}
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
