@@ -1,4 +1,4 @@
-package com.skilldistillery.data;
+package data;
 
 import java.util.List;
 

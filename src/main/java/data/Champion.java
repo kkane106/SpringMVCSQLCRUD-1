@@ -1,4 +1,4 @@
-package com.skilldistillery.data;
+package data;
 
 public class Champion {
 	private String championName;

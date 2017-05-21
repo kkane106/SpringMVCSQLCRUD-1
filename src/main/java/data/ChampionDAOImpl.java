@@ -1,4 +1,4 @@
-package com.skilldistillery.data;
+package data;
 
 import java.io.BufferedReader;
 import java.io.FileWriter;
@@ -86,7 +86,7 @@ public class ChampionDAOImpl implements ChampionDAO{
 	@Override
 	public List<Champion> getAllChampions() {
 		// TODO Auto-generated method stub
-		return null;
+		return champions;
 	}
 
 

@@ -1,6 +1,7 @@
-package com.skilldistillery.controllers;
+package controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.skilldistillery.data.Champion;
-import com.skilldistillery.data.ChampionDAO;
+import data.Champion;
+import data.ChampionDAO;
 
 @Controller
-@SessionAttributes("champions")
+@SessionAttributes({"champions"}) // If you want multiple SessionAttributes -- @SessionAttributes({state, flower})
 public class ChampionController {
 	@Autowired
 	private ChampionDAO championDAO;
@@ -28,13 +29,19 @@ public class ChampionController {
 	}
 	
 	
-	@RequestMapping(path="championList.do", method=RequestMethod.GET)
+	@RequestMapping(path="championsList.do", method=RequestMethod.GET)
 	public ModelAndView listAllChampions() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("userChampionView.jsp");
-		mv.addObject("championsList", championDAO.getAllChampions());
+		List<Champion> champions = championDAO.getAllChampions();
+		mv.addObject("championsList", champions);
 		return mv;
 		
+	}
+	
+	@RequestMapping(value="index.do")
+	public String showIndexPage() {
+		return "index.jsp";
 	}
 	
 }

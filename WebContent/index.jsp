@@ -10,8 +10,12 @@
 </head>
 <body>
 	<h2>Welcome to League of Legends Champions!</h2>
+	<form action="userChampionView.jsp" method="GET">
 	<!-- <form method="GET" action="championList.do"></form> -->
-	<a href="userChampionView.jsp">View the current list of Champions</a><br/>
+	View the current list of Champions: 
+	<br>
+	<input type="submit" value="Click to See!">
+	</form>
 	<!-- <label>:<input type="text" name="userName"></label>
 	<br> -->
 	<!-- <label>What is your Champion's role?:<input type="text" name="championType"></label>

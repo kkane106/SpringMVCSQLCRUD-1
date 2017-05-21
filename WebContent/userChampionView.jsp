@@ -11,9 +11,15 @@
 </head>
 <body>
 
-<form method="POST" action="userChampionView.jsp"></form>
 
+<form method="POST" action="userChampionView.jsp"></form>
 <h2>Current League of Legends Champions!</h2>
+
+<c:forEach var="championsList" items="${champions}">
+<ul>
+<li>${champions}</li>
+</ul>
+</c:forEach>
 
 </body>
 </html>
