@@ -42,6 +42,25 @@ public class ChampionController {
 		return mv;
 		
 	}
+	@RequestMapping(path="championsList.do", method=RequestMethod.POST)
+	public ModelAndView addOverpoweredChampionFromList() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("userChampionView.jsp");
+		List<Champion> champions = championDAO.getAllChampions(); 
+		mv.addObject("champions", champions);
+		return mv;
+		
+	}
+	@RequestMapping(path="championsList.do", method=RequestMethod.POST)
+	public ModelAndView deleteOverpoweredChampionFromList() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("userChampionView.jsp");
+		List<Champion> champions = championDAO.getAllChampions(); 
+		mv.addObject("champions", champions);
+		return mv;
+		
+	}
+	
 	
 	@RequestMapping(value="index.do")
 	public String showIndexPage() {
