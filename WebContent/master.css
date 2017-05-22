@@ -1,0 +1,46 @@
+
+* {
+	/*color: blue;*/
+  font-weight: bolder;
+
+/*The below is css to put a border around text*/
+  color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+body {
+    background-image: url("wallpaper.jpg");
+    background-size: 75em;
+
+}
+
+
+input[type=submit] {
+    padding:5px;
+    -webkit-border-radius: 5px;
+    border-radius: 7px;
+    background: white;
+    border:1px solid black;
+    color: white;
+    font-weight: bold;
+
+}
+input[type=submit]:hover {
+	    color: crimson;
+
+}
+
+table {
+    border: 3px solid cyan;
+
+}
+td{
+  border: 1px solid black;
+}
+td:hover {
+    color: crimson;
+}
