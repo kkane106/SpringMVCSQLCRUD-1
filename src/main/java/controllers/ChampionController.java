@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+
 import data.Champion;
 import data.ChampionDAO;
 
@@ -20,17 +21,16 @@ public class ChampionController {
 	@Autowired
 	private ChampionDAO championDAO;
 	
-	@ModelAttribute
+	@ModelAttribute      // do I use this at all? check later
 	public List<Champion> currentListOfChampions() {
 		return championDAO.getAllChampions();
 	}
 	
-	
-	
-	@ModelAttribute("champions")
-	public ArrayList<Champion> pristineChampionsListDisplayedToUser() {
-		return new ArrayList<Champion>();
+	@ModelAttribute("newChampion")
+	Champion newChampion(){
+		return new Champion();
 	}
+	
 	
 	
 	@RequestMapping(path="championsList.do", method=RequestMethod.GET)
@@ -42,24 +42,34 @@ public class ChampionController {
 		return mv;
 		
 	}
-	@RequestMapping(path="championsList.do", method=RequestMethod.POST)
-	public ModelAndView addOverpoweredChampionFromList() {
+	@RequestMapping(path="addChampion.do", method=RequestMethod.POST)
+//	public ModelAndView addOverpoweredChampionFromList(@ModelAttribute("newChampion") Champion champion, String cName, String cRole) {
+	// don't need to @RequestParam the variables since they are the same name as in the the userChampionView.jsp
+		public ModelAndView addOverpoweredChampionFromList(@ModelAttribute("newChampion") Champion champion, String championName, String championRole) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("userChampionView.jsp");
+//		String championName = championDAO.getChampionName(cName);
+//		String championRole = championDAO.getChampionRole(cRole);
+	
+		
 		List<Champion> champions = championDAO.getAllChampions(); 
-		mv.addObject("champions", champions);
+		
+//		mv.addObject("championName", championName);
+//		mv.addObject("championRole", championRole);
+		championDAO.addOverpoweredChampionToList(championName, championRole);
+		mv.addObject("newChampion", champions);
 		return mv;
 		
 	}
-	@RequestMapping(path="championsList.do", method=RequestMethod.POST)
-	public ModelAndView deleteOverpoweredChampionFromList() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("userChampionView.jsp");
-		List<Champion> champions = championDAO.getAllChampions(); 
-		mv.addObject("champions", champions);
-		return mv;
-		
-	}
+//	@RequestMapping(path="championsList.do", method=RequestMethod.POST)
+//	public ModelAndView deleteOverpoweredChampionFromList() {
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("userChampionView.jsp");
+//		List<Champion> champions = championDAO.getAllChampions(); 
+//		mv.addObject("champions", champions);
+//		return mv;
+//		
+//	}
 	
 	
 	@RequestMapping(value="index.do")

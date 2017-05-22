@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface ChampionDAO {
 	public List<Champion> getAllChampions();
-	public Champion getChampionName(String name);
-//	public Champion getChampionRole();      //add if I have time
+	public String getChampionName(String name);
+	public String getChampionRole(String role);     
 	public void addOverpoweredChampionToList(String championName, String championRole);
 	public void deleteOverpoweredChampionFromList();
 }

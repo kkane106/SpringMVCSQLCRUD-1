@@ -74,11 +74,11 @@ public class ChampionDAOImpl implements ChampionDAO{
 		champions.remove(c);
 	}
 	@Override
-	public Champion getChampionName(String championName) {
-		Champion c = null;
+	public String getChampionName(String championName) {
+		String c = null;
 		for (Champion champion : champions) {
 			if (champion.getChampionName().equalsIgnoreCase(championName)){
-				c = champion;
+				c = champion.getChampionName();
 				break;
 			}
 		}
@@ -86,12 +86,26 @@ public class ChampionDAOImpl implements ChampionDAO{
 	}
 
 	@Override
+	public String getChampionRole(String championRole) {
+		String c = null;
+		for (Champion champion : champions) {
+			if (champion.getChampionRole().equalsIgnoreCase(championRole)){
+				c = champion.getChampionRole();
+				break;
+			}
+		}
+		return c;
+	}
+	
+	
+	@Override
 	public List<Champion> getAllChampions() {
 		if (champions.isEmpty()){
 		champions = initInitialChampions();
 		}
 		return champions;
 	}
+
 
 
 	

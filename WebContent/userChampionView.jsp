@@ -18,7 +18,31 @@
 
 	<h2>Current League of Legends Champions!</h2>
 	<br>
+	<!-- <form method="POST" action="addChampion.do">
+	<h3>Add a Champion!</h3>
+	<label>Champion Name: <input type="text" name="championName"></label>
+	
+	<select name="championRole">
+	<option>Support</option>
+	<option>Slayer</option>
+	<option>Tank</option>
+	<option>Fighter</option>
+	<option>Marksman</option>
+	<option>Mage</option>
+	</select>
+	
 	<input type="submit" value="Add a Champion">
+	
+	</form> -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	<input type="submit" value="Remove a Champion">
 	<br>
 	<br>
