@@ -64,10 +64,11 @@ public class ChampionDAOImpl implements ChampionDAO{
 		
 	}
 	@Override
-	public void deleteOverpoweredChampionFromList(){
+	public void deleteOverpoweredChampionFromList(String championName){
 		Champion c = null;
 		for (Champion champion : champions) {
-			if(champion.getChampionName() == c.getChampionName()) {
+//			if(champion.getChampionName() == c.getChampionName()) {
+			if(champion.getChampionName().equalsIgnoreCase(championName)) {
 				c = champion;
 			}
 		}

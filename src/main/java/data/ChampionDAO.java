@@ -7,5 +7,5 @@ public interface ChampionDAO {
 	public String getChampionName(String name);
 	public String getChampionRole(String role);     
 	public void addOverpoweredChampionToList(String championName, String championRole);
-	public void deleteOverpoweredChampionFromList();
+	public void deleteOverpoweredChampionFromList(String championName);
 }

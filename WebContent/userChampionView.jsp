@@ -18,8 +18,9 @@
 
 	<h2>Current League of Legends Champions!</h2>
 	<br>
-	<!-- <form method="POST" action="addChampion.do">
-	<h3>Add a Champion!</h3>
+	
+	<form method="POST" action="addChampion.do">
+	<h3>Add a Champion:</h3>
 	<label>Champion Name: <input type="text" name="championName"></label>
 	
 	<select name="championRole">
@@ -33,19 +34,26 @@
 	
 	<input type="submit" value="Add a Champion">
 	
-	</form> -->
+	</form> 
+	<br>
 	
 	
-	
-	
-	
-	
-	
-	
+	<form method="POST" action="removeChampion.do">
+	<h3>Remove a Champion:</h3>
+	<label>Champion Name: <input type="text" name="championName"></label>
 	
 	<input type="submit" value="Remove a Champion">
+	</form> 
 	<br>
 	<br>
+
+	
+	
+	
+	
+	
+	
+	
 	<table>
 		<c:forEach items="${champions}" var="champion">
 			<tr>
