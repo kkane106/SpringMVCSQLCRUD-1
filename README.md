@@ -2,6 +2,8 @@
 
 I created this simple Spring web application which utilized HTML, CSS, Java, Gradle, and Spring.
 
+Web application link: http://52.11.199.1:8080/SpringMVCFileCRUD/
+
 This web application with a list that League of Legends Champions that can be viewed, added to, and has the feature of being able to delete champions one by one from the list.
 
 Future features that I would like to include would be including jpg icons for each champion, the option to add icons when a user adds a champion, and the win rate% for each champion in ranked games. I also would take the time to clean up my files and refactor a bit. I know I have some frivolous code.
@@ -9,17 +11,6 @@ Future features that I would like to include would be including jpg icons for ea
 Stumbling points that I reached while creating this web application were lack of experience in setting up the controller and making sure the JSP files were connected properly.
 
 
-
-
-
-
-UPDATE README with the below when finished:
-The project must be added to your github account with a README.md spelling out:
-Who did the project?
-What was the project?
-What technologies did you use?
-What future feature sets you would like to add?
-Any stumbling points you encountered?
 
 
 

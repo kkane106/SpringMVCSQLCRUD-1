@@ -23,7 +23,7 @@
 	<h3>Add a Champion:</h3>
 	<label>Champion Name: <input type="text" name="championName"></label>
 	
-	<select name="championRole">
+	Champion Role:<select name="championRole">
 	<option>Support</option>
 	<option>Slayer</option>
 	<option>Tank</option>
@@ -45,6 +45,12 @@
 	<input type="submit" value="Remove a Champion">
 	</form> 
 	<br>
+	<br>
+	
+	<form action="index.do" method="GET">
+	Return to the home: 
+	<input type="submit" value="Go now!">
+	</form>
 	<br>
 
 	
