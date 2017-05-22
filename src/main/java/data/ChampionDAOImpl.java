@@ -18,8 +18,9 @@ import org.springframework.web.context.WebApplicationContext;
 
 public class ChampionDAOImpl implements ChampionDAO{
 	private static final String INITIAL_CHAMPION_FILE = "/WEB-INF/initialChampions.txt";
-//	private static String PERSISTENT_CHAMPION_FILE = "/WEB-INF/persistentChampions.txt"; // Don't need to use in order to reflect a current list of League champions during the web application lifespan
+	private static String PERSISTENT_CHAMPION_FILE = "/WEB-INF/persistentChampions.txt"; // Don't need to use in order to reflect a current list of League champions during the web application lifespan
 	private List<Champion> champions = new ArrayList<>();
+	private static final String d = ",";
 
 	/*
 	 * Use Autowired to have Spring inject an instance of a
@@ -30,8 +31,8 @@ public class ChampionDAOImpl implements ChampionDAO{
 	@Autowired
 	private WebApplicationContext wac;
 
-//	@Autowired
-//	ServletContext context;  Don't think I need, delete later if I don't
+	@Autowired
+	ServletContext context; 
 
 	/*
 	 * The @PostConstruct method is called by Spring after object creation and
@@ -107,10 +108,36 @@ public class ChampionDAOImpl implements ChampionDAO{
 		return champions;
 	}
 
+	   public void persistChampionList(Champion champion) {
+	        String filePath = context.getRealPath(PERSISTENT_CHAMPION_FILE);
+	        System.out.println("DAO: " + filePath);
+	        try {
+	            PrintWriter out = new PrintWriter(new FileWriter(filePath));
+	            for (Champion champion2 : champions) {
+	            out.println(champion2.getChampionName()+d+champion2.getChampionRole());
+            
+				}
+	            out.close();
+	        } catch (IOException ioe) {
+	            ioe.printStackTrace();
+	        }
+	    }            
+}
+	            
+//	            for (Pizza p : order.getPizzas()) {
+//	                out.println(order.getCustomerEmail()+d+p.getCrust()+p.getSize()+d+p.getSauce()
+//	                            +p.getToppings()
+//	                );
+//	                
+//	            }
+//	            out.close();
+//	        } catch (IOException ioe) {
+//	            ioe.printStackTrace();
+//	        }
+//	    }
 
 
 	
-}
 
 // @Override
 // public void persistOrder(Order order) {
