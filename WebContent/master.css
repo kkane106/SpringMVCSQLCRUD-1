@@ -1,7 +1,7 @@
 
 * {
 	/*color: blue;*/
-  font-weight: bolder;
+  font-weight: bold;
 
 /*The below is css to put a border around text*/
   color: white;
@@ -17,6 +17,7 @@ body {
     background-size: 75em;
 
 }
+
 
 
 input[type=submit] {
