@@ -1,6 +1,16 @@
 ## This is my week 7 project: SpringMVCFileCRUD
 
-I'm going to simply make a web application with a list that League of Legends Champions can be viewed, added to, or delete champions one by one from the list. It will also access the altered list if the user exits out of the application even though they weren't finished with the website just yet (i.e. if they were disconnected from the internet while they were using the web application).
+I created this simple Spring web application which utilized HTML, CSS, Java, Gradle, and Spring.
+
+This web application with a list that League of Legends Champions that can be viewed, added to, and has the feature of being able to delete champions one by one from the list.
+
+Future features that I would like to include would be including jpg icons for each champion, the option to add icons when a user adds a champion, and the win rate% for each champion in ranked games. I also would take the time to clean up my files and refactor a bit. I know I have some frivolous code.
+
+Stumbling points that I reached while creating this web application were lack of experience in setting up the controller and making sure the JSP files were connected properly.
+
+
+
+
 
 
 UPDATE README with the below when finished:
