@@ -1,9 +1,11 @@
 package data;
 
-public class Champion {
+public class Champion {  // implement ability to see champion description, and jpg/image/gif
 	private String id;
 	private String championName;
 	private String championRole;
+//	private String championDescription;
+//	private String championImage;
 	
 	
 	public Champion(){
