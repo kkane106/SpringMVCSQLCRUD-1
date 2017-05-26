@@ -18,6 +18,11 @@ body {
 
 }
 
+body, html {
+  cursor: url(http://i.imgur.com/hAoN3r2.gif), pointer;
+
+}
+
 input[type=submit] {
     padding:5px;
     -webkit-border-radius: 5px;
