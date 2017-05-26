@@ -21,17 +21,10 @@ public class ChampionController {
 	@Autowired
 	private ChampionDAO championDAO;
 	
-	@ModelAttribute      // do I use this at all? check later
-	public List<Champion> currentListOfChampions() {
-		return championDAO.getAllChampions();
-	}
-	
 	@ModelAttribute("newChampion")
 	Champion newChampion(){
 		return new Champion();
 	}
-	
-	
 	
 	@RequestMapping(path="championsList.do", method=RequestMethod.GET)
 	public ModelAndView listAllChampions() {
