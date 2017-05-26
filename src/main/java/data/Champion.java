@@ -4,10 +4,36 @@ public class Champion {  // implement ability to see champion description, and j
 	private String id;
 	private String championName;
 	private String championRole;
-//	private String championDescription;
-//	private String championImage;
+	private String championDescription;
+	private String championImage;
 	
 	
+	public String getChampionDescription() {
+		return championDescription;
+	}
+
+	public void setChampionDescription(String championDescription) {
+		this.championDescription = championDescription;
+	}
+
+	public String getChampionImage() {
+		return championImage;
+	}
+
+	public void setChampionImage(String championImage) {
+		this.championImage = championImage;
+	}
+
+	public Champion(String id, String championName, String championRole, String championDescription,
+			String championImage) {
+		super();
+		this.id = id;
+		this.championName = championName;
+		this.championRole = championRole;
+		this.championDescription = championDescription;
+		this.championImage = championImage;
+	}
+
 	public Champion(){
 		
 	}

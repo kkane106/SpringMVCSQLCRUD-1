@@ -36,13 +36,13 @@ public class ChampionController {
 		
 	}
 	@RequestMapping(path="addChampion.do", method=RequestMethod.POST)
-		public ModelAndView addOverpoweredChampionFromList(@ModelAttribute("newChampion") Champion champion, String id, String championName, String championRole) {
+		public ModelAndView addOverpoweredChampionFromList(@ModelAttribute("newChampion") Champion champion, String id, String championName, String championRole, String championDescription, String championImage) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("userChampionView.jsp");
+		
+		championDAO.addOverpoweredChampionToDB(champion);
 		List<Champion> champions = championDAO.getAllChampions(); 
-	
-		championDAO.addOverpoweredChampionToList(id, championName, championRole);
-		mv.addObject("newChampion", champions);
+		mv.addObject("champions", champions);
 		return mv;
 		
 	}
@@ -50,9 +50,9 @@ public class ChampionController {
 	public ModelAndView deleteOverpoweredChampionFromList(String championName) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("userChampionView.jsp");
+		championDAO.deleteOverpoweredChampionFromDB(championName);
 		List<Champion> champions = championDAO.getAllChampions(); 
 		
-		championDAO.deleteOverpoweredChampionFromList(championName);
 		mv.addObject("champions", champions);
 		return mv;
 		
