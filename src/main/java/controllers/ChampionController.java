@@ -58,6 +58,18 @@ public class ChampionController {
 		
 	}
 	
+	@RequestMapping(path="updateChampion.do", method=RequestMethod.POST)
+	public ModelAndView updateChampionInDB(Champion champion) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("userChampionView.jsp");
+		championDAO.updateChampionInDB(champion);
+		List<Champion> champions = championDAO.getAllChampions(); 
+		
+		mv.addObject("champions", champions);
+		return mv;
+		
+	}
+	
 	
 	@RequestMapping(value="index.do")   // put a submit button with path index.do on champion page to go back if the user wants to
 	public String showIndexPage() {

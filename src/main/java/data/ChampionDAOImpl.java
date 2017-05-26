@@ -8,39 +8,15 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
+
 
 import com.mysql.jdbc.Statement;
 
 public class ChampionDAOImpl implements ChampionDAO {
-	// private static final String INITIAL_CHAMPION_FILE =
-	// "/WEB-INF/initialChampions.csv";
-	// private List<Champion> champions = new ArrayList<>();
-	// private static final String d = ",";
 
-	private static String url = "jdbc:mysql://localhost:3306/championsdb"; // change
-																			// to
-																			// new
-																			// db
-																			// when
-																			// finished
+	private static String url = "jdbc:mysql://localhost:3306/championsdb"; 
 	private String user = "player";
 	private String pass = "player";
-
-	/*
-	 * Use Autowired to have Spring inject an instance of a
-	 * WebApplicationContext into this object after creation. We will use the
-	 * WebApplicationContext to retrieve an ServletContext so we can read from a
-	 * file.
-	 */
-
-	// @Autowired
-	// ServletContext context;
-
-	/*
-	 * The @PostConstruct method is called by Spring after object creation and
-	 * dependency injection
-	 */
 
 	public ChampionDAOImpl() {
 		try {
@@ -51,7 +27,6 @@ public class ChampionDAOImpl implements ChampionDAO {
 		}
 	}
 
-//	@PostConstruct
 	public List<Champion> getAllChampionsFromDB() {
 		List<Champion> champions = new ArrayList<>();
 		try {
@@ -114,6 +89,27 @@ public class ChampionDAOImpl implements ChampionDAO {
 			String sql = "DELETE FROM champion WHERE champion_name = ?"; 
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS); 																				
 			stmt.setString(1, champion_name);
+			// ResultSet rs = stmt.executeQuery();
+			stmt.executeUpdate();
+			// rs.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+	@Override
+	public void updateChampionInDB(Champion champion) {
+		System.out.println("test" + champion);
+		try {
+			Connection conn = DriverManager.getConnection(url, user, pass);
+			String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, length = ?, rating = ?, rental_duration = ?, rental_rate = ?, replacement_cost = ?, language_id = ? WHERE id = ?"; 
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS); 																				
+			stmt.setString(1, champion.getChampionName());
+			stmt.setString(2, champion.getChampionRole());
+			stmt.setString(3, champion.getChampionDescription());
+			stmt.setString(4, champion.getChampionImage());
 			// ResultSet rs = stmt.executeQuery();
 			stmt.executeUpdate();
 			// rs.close();

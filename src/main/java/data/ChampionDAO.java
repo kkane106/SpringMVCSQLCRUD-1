@@ -9,4 +9,5 @@ public interface ChampionDAO {
 //	public void addOverpoweredChampionToList(String id, String championName, String championRole);
 	public void deleteOverpoweredChampionFromDB(String championName);
 	public void addOverpoweredChampionToDB(Champion champion);
+	public void updateChampionInDB(Champion champion);
 }
