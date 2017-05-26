@@ -43,20 +43,12 @@ public class ChampionController {
 		
 	}
 	@RequestMapping(path="addChampion.do", method=RequestMethod.POST)
-//	public ModelAndView addOverpoweredChampionFromList(@ModelAttribute("newChampion") Champion champion, String cName, String cRole) {
-	// don't need to @RequestParam the variables since they are the same name as in the the userChampionView.jsp
-		public ModelAndView addOverpoweredChampionFromList(@ModelAttribute("newChampion") Champion champion, String championName, String championRole) {
+		public ModelAndView addOverpoweredChampionFromList(@ModelAttribute("newChampion") Champion champion, String id, String championName, String championRole) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("userChampionView.jsp");
-//		String championName = championDAO.getChampionName(cName);
-//		String championRole = championDAO.getChampionRole(cRole);
-	
-		
 		List<Champion> champions = championDAO.getAllChampions(); 
-		
-//		mv.addObject("championName", championName);
-//		mv.addObject("championRole", championRole);
-		championDAO.addOverpoweredChampionToList(championName, championRole);
+	
+		championDAO.addOverpoweredChampionToList(id, championName, championRole);
 		mv.addObject("newChampion", champions);
 		return mv;
 		

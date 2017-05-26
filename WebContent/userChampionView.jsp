@@ -63,6 +63,7 @@
 	<table>
 		<c:forEach items="${champions}" var="champion">
 			<tr>
+				<td>${champion.id}</td>
 				<td>${champion.championName}</td>
 				<td>${champion.championRole}</td>
 			</tr>
