@@ -31,14 +31,16 @@ public class ChampionDAOImpl implements ChampionDAO {
 		List<Champion> champions = new ArrayList<>();
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
-			String sql = "SELECT id, champion_name, champion_role FROM champion";
+			String sql = "SELECT id, champion_name, champion_role, champion_description, champion_image FROM champion";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				String id = rs.getString(1);
 				String champion_name = rs.getString(2);
 				String champion_role = rs.getString(3);
-				champions.add(new Champion(id, champion_name, champion_role));
+				String champion_description = rs.getString(4);
+				String champion_image = rs.getString(5);
+				champions.add(new Champion(id, champion_name, champion_role, champion_description, champion_image));
 
 			}
 			rs.close();
@@ -47,8 +49,9 @@ public class ChampionDAOImpl implements ChampionDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 		return champions;
+		
+	
 	}
 
 	
@@ -104,7 +107,7 @@ public class ChampionDAOImpl implements ChampionDAO {
 		System.out.println("test" + champion);
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
-			System.out.println(champion.getId());
+			System.out.println(champion.getId()); //remove when working again
 			String sql = "UPDATE champion SET champion_name = ?, champion_role = ?, champion_description = ?, champion_image = ? WHERE id = ?"; 
 			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);  //check if i can delete generated keys parameter																		
 			stmt.setString(1, champion.getChampionName());

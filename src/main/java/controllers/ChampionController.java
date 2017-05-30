@@ -25,6 +25,15 @@ public class ChampionController {
 		return new Champion();
 	}
 	
+//	@RequestMapping(path="championsList.do", method=RequestMethod.GET)
+//	public ModelAndView listAllChampions() {
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("userChampionView.jsp");
+//		List<Champion> champions = championDAO.getAllChampions(); 
+//		mv.addObject("champions", champions);
+//		return mv;
+//		
+//	}
 	@RequestMapping(path="championsList.do", method=RequestMethod.GET)
 	public ModelAndView listAllChampions() {
 		ModelAndView mv = new ModelAndView();
@@ -69,9 +78,9 @@ public class ChampionController {
 	}
 	
 	@RequestMapping(value="updateChampion.do", method=RequestMethod.GET)   
-	public ModelAndView goToUpdateChampionView(@RequestParam("championName") String name) {
+	public ModelAndView goToUpdateChampionView(@RequestParam("id") String id) {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("champion", championDAO.getChampionName(name));
+		mv.addObject("champion", championDAO.getChampionName(id));
 		mv.setViewName("updateChampion.jsp");
 		return mv;
 	}

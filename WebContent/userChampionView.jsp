@@ -71,10 +71,9 @@
 				<td>${champion.championRole}</td>
 				<%-- <td>${champion.championDescription}</td> --%>
 				<td><form action="updateChampion.do" method="GET">
-						<input type="hidden" name="championName" value="${champion.championName}">
+						<input type="hidden" name="id" value="${champion.id}">
 						<input type="submit" value="Update now!">
 					</form></td>
-				<%-- 	<td>${champion.championRole}</td> --%>
 			</tr>
 		</c:forEach>
 	</table>

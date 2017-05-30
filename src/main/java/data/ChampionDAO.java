@@ -10,4 +10,5 @@ public interface ChampionDAO {
 	public void deleteOverpoweredChampionFromDB(String championName);
 	public void addOverpoweredChampionToDB(Champion champion);
 	public void updateChampionInDB(Champion champion);
+	public List<Champion> getAllChampionsFromDB();
 }
