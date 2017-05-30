@@ -87,7 +87,7 @@ public class ChampionDAOImpl implements ChampionDAO {
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
 			String sql = "DELETE FROM champion WHERE champion_name = ?"; 
-			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS); 																				
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS); //check if i can delete generated keys parameter	 																				
 			stmt.setString(1, champion_name);
 			// ResultSet rs = stmt.executeQuery();
 			stmt.executeUpdate();
@@ -104,12 +104,14 @@ public class ChampionDAOImpl implements ChampionDAO {
 		System.out.println("test" + champion);
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
-			String sql = "UPDATE film SET title = ?, description = ?, release_year = ?, length = ?, rating = ?, rental_duration = ?, rental_rate = ?, replacement_cost = ?, language_id = ? WHERE id = ?"; 
-			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS); 																				
+			System.out.println(champion.getId());
+			String sql = "UPDATE champion SET champion_name = ?, champion_role = ?, champion_description = ?, champion_image = ? WHERE id = ?"; 
+			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);  //check if i can delete generated keys parameter																		
 			stmt.setString(1, champion.getChampionName());
 			stmt.setString(2, champion.getChampionRole());
 			stmt.setString(3, champion.getChampionDescription());
 			stmt.setString(4, champion.getChampionImage());
+			stmt.setString(5, champion.getId());
 			// ResultSet rs = stmt.executeQuery();
 			stmt.executeUpdate();
 			// rs.close();

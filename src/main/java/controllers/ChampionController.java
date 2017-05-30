@@ -1,6 +1,5 @@
 package controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
-
 
 import data.Champion;
 import data.ChampionDAO;
@@ -59,19 +58,30 @@ public class ChampionController {
 	}
 	
 	@RequestMapping(path="updateChampion.do", method=RequestMethod.POST)
-	public ModelAndView updateChampionInDB(Champion champion) {
+	public ModelAndView updateChampionInDB(@ModelAttribute("newChampion") Champion champion, String id, String championName, String championRole, String championDescription, String championImage) {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("userChampionView.jsp");
+		mv.setViewName("updateChampion.jsp");
 		championDAO.updateChampionInDB(champion);
 		List<Champion> champions = championDAO.getAllChampions(); 
-		
 		mv.addObject("champions", champions);
 		return mv;
 		
 	}
 	
+	@RequestMapping(value="updateChampion.do", method=RequestMethod.GET)   
+	public ModelAndView goToUpdateChampionView(@RequestParam("championName") String name) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("champion", championDAO.getChampionName(name));
+		mv.setViewName("updateChampion.jsp");
+		return mv;
+	}
 	
-	@RequestMapping(value="index.do")   // put a submit button with path index.do on champion page to go back if the user wants to
+	@RequestMapping(value="userChampionView.do")   
+	public String showUserChampionView() {
+		return "userChampionView.jsp";
+	}
+	
+	@RequestMapping(value="index.do")   
 	public String showIndexPage() {
 		return "index.jsp";
 	}
