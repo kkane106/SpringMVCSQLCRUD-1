@@ -35,11 +35,11 @@
 	</form>
 	<br>
 
-	<form action="updateChampion.do" method="GET">
+	<!-- <form action="updateChampion.do" method="GET">
 		<h3>Update a Champion:</h3> <input type="text" name="championName">
 		<input type="submit" value="Update now!">
 	</form>
-	<br>
+	<br> -->
 
 
 	<form method="POST" action="removeChampion.do">

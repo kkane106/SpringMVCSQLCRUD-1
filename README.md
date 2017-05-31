@@ -1,6 +1,6 @@
 ## This is my week 7 project: SpringMVCFileCRUD
 
-I created this simple Spring web application which utilized HTML, CSS, Java, Gradle, and Spring.
+I created this simple Spring web application which utilized HTML, CSS, Java, Gradle, SQL, JDBC, and Spring MVC, 
 
 Web application link: http://52.11.199.1:8080/SpringMVCFileCRUD/
 
