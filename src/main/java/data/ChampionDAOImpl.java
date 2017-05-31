@@ -31,7 +31,8 @@ public class ChampionDAOImpl implements ChampionDAO {
 		List<Champion> champions = new ArrayList<>();
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
-			String sql = "SELECT id, champion_name, champion_role, champion_description, champion_image FROM champion";
+			String sql = "SELECT id, champion_name, champion_role," +
+				"champion_description, champion_image FROM champion";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -40,7 +41,8 @@ public class ChampionDAOImpl implements ChampionDAO {
 				String champion_role = rs.getString(3);
 				String champion_description = rs.getString(4);
 				String champion_image = rs.getString(5);
-				champions.add(new Champion(id, champion_name, champion_role, champion_description, champion_image));
+				champions.add(new Champion(id, champion_name, champion_role, 
+					champion_description, champion_image));
 
 			}
 			rs.close();
@@ -59,8 +61,26 @@ public class ChampionDAOImpl implements ChampionDAO {
 	public void addOverpoweredChampionToDB(Champion champion) {
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
-			String sql = "INSERT INTO champion (champion_name, champion_role, champion_description, champion_image) VALUES (?, ?, ?, ?)"; 
-			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS); 
+			/*
+				For long queries, like the one below, try to use string concatenation
+				as much as possible to keep your line length below 100 lines
+
+				This gets into a more meta topic of code quality and is the kind of 
+				thing that you could potentially be dinged for in a code review at a
+				company.
+
+				Additionally, you can use SQL like line breaks to make it more 
+				readable...for example look at the below:
+			*/
+			String sql = "INSERT INTO champion (" +
+												"champion_name," +
+												"champion_role," +
+												"champion_description," +
+												"champion_image" +
+											")" +
+											"VALUES (?, ?, ?, ?)"; 
+			PreparedStatement stmt = conn.prepareStatement(sql, 
+				Statement.RETURN_GENERATED_KEYS); 
 																								
 			stmt.setString(1, champion.getChampionName());
 			stmt.setString(2, champion.getChampionRole());
@@ -90,7 +110,8 @@ public class ChampionDAOImpl implements ChampionDAO {
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
 			String sql = "DELETE FROM champion WHERE champion_name = ?"; 
-			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS); //check if i can delete generated keys parameter	 																				
+			PreparedStatement stmt = conn.prepareStatement(sql, 
+				Statement.RETURN_GENERATED_KEYS); //check if i can delete generated keys parameter	 																				
 			stmt.setString(1, champion_name);
 			// ResultSet rs = stmt.executeQuery();
 			stmt.executeUpdate();
@@ -108,8 +129,10 @@ public class ChampionDAOImpl implements ChampionDAO {
 		try {
 			Connection conn = DriverManager.getConnection(url, user, pass);
 			System.out.println(champion.getId()); //remove when working again
-			String sql = "UPDATE champion SET champion_name = ?, champion_role = ?, champion_description = ?, champion_image = ? WHERE id = ?"; 
-			PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);  //check if i can delete generated keys parameter																		
+			String sql = "UPDATE champion SET champion_name = ?, champion_role = ?," + 
+			 "champion_description = ?, champion_image = ? WHERE id = ?"; 
+			PreparedStatement stmt = conn.prepareStatement(sql, 
+				Statement.RETURN_GENERATED_KEYS);  //check if i can delete generated keys parameter																		
 			stmt.setString(1, champion.getChampionName());
 			stmt.setString(2, champion.getChampionRole());
 			stmt.setString(3, champion.getChampionDescription());

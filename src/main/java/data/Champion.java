@@ -7,6 +7,37 @@ public class Champion {  // implement ability to see champion description, and j
 	private String championDescription;
 	private String championImage;
 	
+	/*
+		This is more a style note:
+
+		I would recommend keeping your constructors grouped after your field
+		variables in classes and before your getters/setters.
+
+		This keeps your POJOs well organized and saves you from digging through 
+		your own classes in search of a constructor you may or may not have 
+		written.
+	*/
+	public Champion(){}
+
+	public Champion(String championName, String championRole) {
+		this.championName = championName;
+		this.championRole = championRole;
+	}
+	public Champion(String id, String championName, String championRole) {
+		this.id = id;
+		this.championName = championName;
+		this.championRole = championRole;
+	}
+	
+	public Champion(String id, String championName, String championRole, String championDescription,
+			String championImage) {
+		super();
+		this.id = id;
+		this.championName = championName;
+		this.championRole = championRole;
+		this.championDescription = championDescription;
+		this.championImage = championImage;
+	}
 	
 	public String getChampionDescription() {
 		return championDescription;
@@ -23,20 +54,6 @@ public class Champion {  // implement ability to see champion description, and j
 	public void setChampionImage(String championImage) {
 		this.championImage = championImage;
 	}
-
-	public Champion(String id, String championName, String championRole, String championDescription,
-			String championImage) {
-		super();
-		this.id = id;
-		this.championName = championName;
-		this.championRole = championRole;
-		this.championDescription = championDescription;
-		this.championImage = championImage;
-	}
-
-	public Champion(){
-		
-	}
 	
 	public String getId() {
 		return id;
@@ -44,18 +61,6 @@ public class Champion {  // implement ability to see champion description, and j
 
 	public void setId(String id) {
 		this.id = id;
-	}
-
-	public Champion(String id, String championName, String championRole) {
-		super();
-		this.id = id;
-		this.championName = championName;
-		this.championRole = championRole;
-	}
-
-	public Champion(String championName, String championRole) {
-		this.championName = championName;
-		this.championRole = championRole;
 	}
 	
 	public String getChampionName() {
