@@ -25,15 +25,7 @@ public class ChampionController {
 		return new Champion();
 	}
 	
-//	@RequestMapping(path="championsList.do", method=RequestMethod.GET)
-//	public ModelAndView listAllChampions() {
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("userChampionView.jsp");
-//		List<Champion> champions = championDAO.getAllChampions(); 
-//		mv.addObject("champions", champions);
-//		return mv;
-//		
-//	}
+
 	@RequestMapping(path="championsList.do", method=RequestMethod.GET)
 	public ModelAndView listAllChampions() {
 		ModelAndView mv = new ModelAndView();
@@ -67,9 +59,10 @@ public class ChampionController {
 	}
 	
 	@RequestMapping(path="updateChampion.do", method=RequestMethod.POST)
-	public ModelAndView updateChampionInDB(@ModelAttribute("newChampion") Champion champion, String id, String championName, String championRole, String championDescription, String championImage) {
+	public ModelAndView updateChampionInDB(Champion champion, String id, String championName, String championRole, String championDescription, String championImage) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("updateChampion.jsp");
+		System.out.println(champion);
 		championDAO.updateChampionInDB(champion);
 		List<Champion> champions = championDAO.getAllChampions(); 
 		mv.addObject("champions", champions);
@@ -80,7 +73,8 @@ public class ChampionController {
 	@RequestMapping(value="updateChampion.do", method=RequestMethod.GET)   
 	public ModelAndView goToUpdateChampionView(@RequestParam("id") String id) {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("champion", championDAO.getChampionName(id));
+		System.out.println("****" + championDAO.getChampionId(id));
+		mv.addObject("champion", championDAO.getChampionId(id));
 		mv.setViewName("updateChampion.jsp");
 		return mv;
 	}

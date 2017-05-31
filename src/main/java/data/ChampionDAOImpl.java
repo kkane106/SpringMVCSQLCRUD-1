@@ -138,12 +138,25 @@ public class ChampionDAOImpl implements ChampionDAO {
 		}
 		return c;
 	}
+	
+	@Override
+	public Champion getChampionId(String id) {
+		List<Champion> champions = new ArrayList<>();  // fix link to DB
+		Champion c = null;
+		for (Champion champion : getAllChampionsFromDB()) {
+			if (champion.getId().equals(id)) {
+				c = champion;
+				break;
+			}
+		}
+		return c;
+	}
 
 	@Override
 	public String getChampionRole(String championRole) {
 		List<Champion> champions = new ArrayList<>(); //fix link to db
 		String c = null;
-		for (Champion champion : champions) {
+		for (Champion champion : getAllChampionsFromDB()) {
 			if (champion.getChampionRole().equalsIgnoreCase(championRole)) {
 				c = champion.getChampionRole();
 				break;

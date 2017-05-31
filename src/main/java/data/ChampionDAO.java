@@ -11,4 +11,5 @@ public interface ChampionDAO {
 	public void addOverpoweredChampionToDB(Champion champion);
 	public void updateChampionInDB(Champion champion);
 	public List<Champion> getAllChampionsFromDB();
+	Champion getChampionId(String id);
 }

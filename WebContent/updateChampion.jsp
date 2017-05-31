@@ -14,7 +14,7 @@
 	<form method="POST" action="updateChampion.do">
 <input type="hidden" name="id" value="${champion.id}">
 		<h3>Update a Champion:</h3>
-		<label>Champion Name: <input type="text" name="championName" value="${champion.id}"></label>
+		<label>Champion Name: <input type="text" name="championName" value="${champion.championName}"></label>
 		<br> Champion Role:<select name="championRole">
 			<option>Support</option>
 			<option>Slayer</option>
